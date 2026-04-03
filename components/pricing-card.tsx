@@ -5,7 +5,6 @@ interface PricingCardProps {
   name: string;
   features: string[];
   isHighlighted?: boolean;
-  onGetQuote?: () => void;
 }
 
 export function PricingCard({
@@ -13,7 +12,6 @@ export function PricingCard({
   name,
   features,
   isHighlighted = false,
-  onGetQuote,
 }: PricingCardProps) {
   return (
     <div
@@ -46,13 +44,13 @@ export function PricingCard({
         ))}
       </ul>
 
-      {/* CTA Button */}
-      <button
-        onClick={onGetQuote}
-        className="w-full mt-4 bg-primary hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-sm transition-colors duration-200"
+      {/* CTA Link */}
+      <a
+        href="#quote-form"
+        className="w-full mt-4 bg-primary hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-sm transition-colors duration-200 text-center inline-block"
       >
         Get Your Quote
-      </button>
+      </a>
     </div>
   );
 }

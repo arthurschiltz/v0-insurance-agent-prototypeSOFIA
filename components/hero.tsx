@@ -3,11 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-interface HeroProps {
-  onGetQuoteClick?: () => void;
-}
-
-export function Hero({ onGetQuoteClick }: HeroProps) {
+export function Hero() {
   return (
     <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 bg-background">
       <div className="max-w-6xl mx-auto">
@@ -61,12 +57,12 @@ export function Hero({ onGetQuoteClick }: HeroProps) {
               </p>
             </div>
 
-            <button
-              onClick={onGetQuoteClick}
-              className="w-full md:w-fit bg-primary hover:bg-primary-600 text-white font-semibold py-3 px-8 rounded-sm transition-colors duration-200 text-lg"
+            <a
+              href="#quote-form"
+              className="w-full md:w-fit bg-primary hover:bg-primary-600 text-white font-semibold py-3 px-8 rounded-sm transition-colors duration-200 text-lg text-center inline-block"
             >
               Get Your Free Quote
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

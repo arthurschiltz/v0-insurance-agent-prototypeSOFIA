@@ -7,10 +7,7 @@ import { Footer } from '@/components/footer';
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      <Hero onGetQuoteClick={() => {
-        const formElement = document.getElementById('quote-form');
-        formElement?.scrollIntoView({ behavior: 'smooth' });
-      }} />
+      <Hero />
       <QuoteForm />
       <Testimonials />
       <PricingTiers />

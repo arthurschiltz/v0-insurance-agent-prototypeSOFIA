@@ -58,11 +58,6 @@ const itemVariants = {
 };
 
 export function PricingTiers() {
-  const handleGetQuote = () => {
-    const formElement = document.getElementById('quote-form');
-    formElement?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 bg-section">
       <div className="max-w-6xl mx-auto">
@@ -95,7 +90,6 @@ export function PricingTiers() {
                 name={tier.name}
                 features={tier.features}
                 isHighlighted={tier.isHighlighted}
-                onGetQuote={handleGetQuote}
               />
             </motion.div>
           ))}
