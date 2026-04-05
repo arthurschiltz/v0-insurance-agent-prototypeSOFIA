@@ -78,25 +78,20 @@ export function COIForm() {
 
             <div className="bg-gray-50 rounded-md p-6 space-y-3 text-left">
               <p className="text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">Name:</span>{' '}
-                {submittedData.name}
+                <span className="font-semibold text-gray-900">Business Name:</span>{' '}
+                {submittedData.businessName}
+              </p>
+              <p className="text-sm text-gray-600">
+                <span className="font-semibold text-gray-900">Certificate Holder Name:</span>{' '}
+                {submittedData.certificateHolderName}
+              </p>
+              <p className="text-sm text-gray-600">
+                <span className="font-semibold text-gray-900">Certificate Holder Address:</span>{' '}
+                {submittedData.certificateHolderAddress}
               </p>
               <p className="text-sm text-gray-600">
                 <span className="font-semibold text-gray-900">Email:</span>{' '}
                 {submittedData.email}
-              </p>
-              <p className="text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">Phone:</span>{' '}
-                {submittedData.phone}
-              </p>
-              <p className="text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">Coverage Type:</span>{' '}
-                {submittedData.serviceType.charAt(0).toUpperCase() +
-                  submittedData.serviceType.slice(1)}
-              </p>
-              <p className="text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">ZIP Code:</span>{' '}
-                {submittedData.zipCode}
               </p>
             </div>
 
@@ -143,133 +138,85 @@ export function COIForm() {
             className="bg-card rounded-lg shadow-card p-6 md:p-8 space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Name */}
+              {/* Business Name */}
               <div className="md:col-span-1">
                 <label
-                  htmlFor="coi-name"
+                  htmlFor="coi-businessName"
                   className="block text-sm font-semibold text-gray-900 mb-2"
                 >
-                  Full Name *
+                  Your Name / Business Name *
                 </label>
                 <input
-                  {...register('name')}
+                  {...register('businessName')}
                   type="text"
-                  id="coi-name"
-                  placeholder="John Doe"
+                  id="coi-businessName"
+                  placeholder="John Doe or Acme Corp"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                 />
-                {errors.name && (
-                  <p className="text-error text-sm mt-1">{errors.name.message}</p>
+                {errors.businessName && (
+                  <p className="text-error text-sm mt-1">{errors.businessName.message}</p>
+                )}
+              </div>
+
+              {/* Certificate Holder Name */}
+              <div className="md:col-span-1">
+                <label
+                  htmlFor="coi-certificateHolderName"
+                  className="block text-sm font-semibold text-gray-900 mb-2"
+                >
+                  Certificate Holder Name *
+                </label>
+                <input
+                  {...register('certificateHolderName')}
+                  type="text"
+                  id="coi-certificateHolderName"
+                  placeholder="Jane Smith"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
+                />
+                {errors.certificateHolderName && (
+                  <p className="text-error text-sm mt-1">{errors.certificateHolderName.message}</p>
+                )}
+              </div>
+
+              {/* Certificate Holder Address */}
+              <div className="md:col-span-2">
+                <label
+                  htmlFor="coi-certificateHolderAddress"
+                  className="block text-sm font-semibold text-gray-900 mb-2"
+                >
+                  Certificate Holder Address *
+                </label>
+                <input
+                  {...register('certificateHolderAddress')}
+                  type="text"
+                  id="coi-certificateHolderAddress"
+                  placeholder="123 Main St, City, State 12345"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
+                />
+                {errors.certificateHolderAddress && (
+                  <p className="text-error text-sm mt-1">{errors.certificateHolderAddress.message}</p>
                 )}
               </div>
 
               {/* Email */}
-              <div className="md:col-span-1">
+              <div className="md:col-span-2">
                 <label
                   htmlFor="coi-email"
                   className="block text-sm font-semibold text-gray-900 mb-2"
                 >
-                  Email Address *
+                  Email to Send the COI *
                 </label>
                 <input
                   {...register('email')}
                   type="email"
                   id="coi-email"
-                  placeholder="john@example.com"
+                  placeholder="jane@example.com"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                 />
                 {errors.email && (
                   <p className="text-error text-sm mt-1">{errors.email.message}</p>
                 )}
               </div>
-
-              {/* Phone */}
-              <div className="md:col-span-1">
-                <label
-                  htmlFor="coi-phone"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
-                >
-                  Phone Number *
-                </label>
-                <input
-                  {...register('phone')}
-                  type="tel"
-                  id="coi-phone"
-                  placeholder="(555) 123-4567"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
-                />
-                {errors.phone && (
-                  <p className="text-error text-sm mt-1">{errors.phone.message}</p>
-                )}
-              </div>
-
-              {/* Service Type */}
-              <div className="md:col-span-1">
-                <label
-                  htmlFor="coi-serviceType"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
-                >
-                  Coverage Type *
-                </label>
-                <select
-                  {...register('serviceType')}
-                  id="coi-serviceType"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:bg-white transition-colors"
-                >
-                  <option value="">Select a coverage type</option>
-                  <option value="auto">Auto Insurance</option>
-                  <option value="home">Home Insurance</option>
-                  <option value="life">Life Insurance</option>
-                  <option value="umbrella">Umbrella Insurance</option>
-                </select>
-                {errors.serviceType && (
-                  <p className="text-error text-sm mt-1">
-                    {errors.serviceType.message}
-                  </p>
-                )}
-              </div>
-
-              {/* ZIP Code */}
-              <div className="md:col-span-1">
-                <label
-                  htmlFor="coi-zipCode"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
-                >
-                  ZIP Code *
-                </label>
-                <input
-                  {...register('zipCode')}
-                  type="text"
-                  id="coi-zipCode"
-                  placeholder="12345"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
-                />
-                {errors.zipCode && (
-                  <p className="text-error text-sm mt-1">
-                    {errors.zipCode.message}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Message (Full Width) */}
-            <div>
-              <label
-                htmlFor="coi-message"
-                className="block text-sm font-semibold text-gray-900 mb-2"
-              >
-                Additional Details (Optional)
-              </label>
-              <textarea
-                {...register('message')}
-                id="coi-message"
-                placeholder="Tell us anything else we should know..."
-                rows={4}
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors resize-none"
-              />
-              {errors.message && (
-                <p className="text-error text-sm mt-1">{errors.message.message}</p>
-              )}
             </div>
 
             {/* Submit Button */}
