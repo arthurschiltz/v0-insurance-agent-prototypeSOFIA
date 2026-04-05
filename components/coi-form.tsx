@@ -5,33 +5,33 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
-import { quoteFormSchema, QuoteFormData } from '@/lib/form-schema';
-import { saveQuote } from '@/lib/form-utils';
+import { coiFormSchema, COIFormData } from '@/lib/form-schema';
+import { saveCOI } from '@/lib/form-utils';
 
-export function QuoteForm() {
+export function COIForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [submittedData, setSubmittedData] = useState<QuoteFormData | null>(null);
+  const [submittedData, setSubmittedData] = useState<COIFormData | null>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<QuoteFormData>({
-    resolver: zodResolver(quoteFormSchema),
+  } = useForm<COIFormData>({
+    resolver: zodResolver(coiFormSchema),
   });
 
-  const onSubmit = async (data: QuoteFormData) => {
+  const onSubmit = async (data: COIFormData) => {
     try {
       // Save to localStorage
-      saveQuote(data);
+      saveCOI(data);
 
       // Show success state
       setSubmittedData(data);
       setSubmitted(true);
 
       // Toast notification
-      toast.success('Quote request received! We will contact you soon.');
+      toast.success('Certificate of Insurance request received! We will contact you soon.');
 
       // Reset form
       reset();
@@ -49,7 +49,7 @@ export function QuoteForm() {
 
   if (submitted && submittedData) {
     return (
-      <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 bg-section">
+      <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 bg-background">
         <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -72,7 +72,7 @@ export function QuoteForm() {
                 Thank You!
               </h2>
               <p className="text-lg text-gray-600">
-                Your quote request has been received.
+                Your Certificate of Insurance request has been received.
               </p>
             </div>
 
@@ -102,13 +102,13 @@ export function QuoteForm() {
 
             <div className="space-y-4 pt-4">
               <p className="text-gray-700 text-sm leading-relaxed">
-                Jose will review your information and contact you within 24 hours with personalized insurance recommendations.
+                Jose will process your Certificate of Insurance request and contact you within 24 hours.
               </p>
               <button
                 onClick={handleReset}
                 className="w-full bg-primary hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-sm transition-colors duration-200"
               >
-                Submit Another Quote
+                Submit Another Request
               </button>
             </div>
           </motion.div>
@@ -118,7 +118,7 @@ export function QuoteForm() {
   }
 
   return (
-    <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 bg-section" id="quote-form">
+    <section className="py-8 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 bg-background" id="coi-form">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -130,10 +130,10 @@ export function QuoteForm() {
           {/* Form Header */}
           <div className="text-center space-y-2">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Get Your Free Quote
+              Request a Certificate of Insurance
             </h2>
             <p className="text-lg text-gray-600">
-              Fill out the form below and we&apos;ll get back to you with personalized recommendations.
+              Need a Certificate of Insurance? Fill out the form below and we&apos;ll prepare one for you.
             </p>
           </div>
 
@@ -146,7 +146,7 @@ export function QuoteForm() {
               {/* Name */}
               <div className="md:col-span-1">
                 <label
-                  htmlFor="name"
+                  htmlFor="coi-name"
                   className="block text-sm font-semibold text-gray-900 mb-2"
                 >
                   Full Name *
@@ -154,7 +154,7 @@ export function QuoteForm() {
                 <input
                   {...register('name')}
                   type="text"
-                  id="name"
+                  id="coi-name"
                   placeholder="John Doe"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                 />
@@ -166,7 +166,7 @@ export function QuoteForm() {
               {/* Email */}
               <div className="md:col-span-1">
                 <label
-                  htmlFor="email"
+                  htmlFor="coi-email"
                   className="block text-sm font-semibold text-gray-900 mb-2"
                 >
                   Email Address *
@@ -174,7 +174,7 @@ export function QuoteForm() {
                 <input
                   {...register('email')}
                   type="email"
-                  id="email"
+                  id="coi-email"
                   placeholder="john@example.com"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                 />
@@ -186,7 +186,7 @@ export function QuoteForm() {
               {/* Phone */}
               <div className="md:col-span-1">
                 <label
-                  htmlFor="phone"
+                  htmlFor="coi-phone"
                   className="block text-sm font-semibold text-gray-900 mb-2"
                 >
                   Phone Number *
@@ -194,7 +194,7 @@ export function QuoteForm() {
                 <input
                   {...register('phone')}
                   type="tel"
-                  id="phone"
+                  id="coi-phone"
                   placeholder="(555) 123-4567"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                 />
@@ -206,14 +206,14 @@ export function QuoteForm() {
               {/* Service Type */}
               <div className="md:col-span-1">
                 <label
-                  htmlFor="serviceType"
+                  htmlFor="coi-serviceType"
                   className="block text-sm font-semibold text-gray-900 mb-2"
                 >
                   Coverage Type *
                 </label>
                 <select
                   {...register('serviceType')}
-                  id="serviceType"
+                  id="coi-serviceType"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                 >
                   <option value="">Select a coverage type</option>
@@ -232,7 +232,7 @@ export function QuoteForm() {
               {/* ZIP Code */}
               <div className="md:col-span-1">
                 <label
-                  htmlFor="zipCode"
+                  htmlFor="coi-zipCode"
                   className="block text-sm font-semibold text-gray-900 mb-2"
                 >
                   ZIP Code *
@@ -240,7 +240,7 @@ export function QuoteForm() {
                 <input
                   {...register('zipCode')}
                   type="text"
-                  id="zipCode"
+                  id="coi-zipCode"
                   placeholder="12345"
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors"
                 />
@@ -255,14 +255,14 @@ export function QuoteForm() {
             {/* Message (Full Width) */}
             <div>
               <label
-                htmlFor="message"
+                htmlFor="coi-message"
                 className="block text-sm font-semibold text-gray-900 mb-2"
               >
                 Additional Details (Optional)
               </label>
               <textarea
                 {...register('message')}
-                id="message"
+                id="coi-message"
                 placeholder="Tell us anything else we should know..."
                 rows={4}
                 className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors resize-none"
@@ -278,7 +278,7 @@ export function QuoteForm() {
               disabled={isSubmitting}
               className="w-full bg-primary hover:bg-primary-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-sm transition-colors duration-200"
             >
-              {isSubmitting ? 'Submitting...' : 'Get Your Free Quote'}
+              {isSubmitting ? 'Submitting...' : 'Request Certificate'}
             </button>
 
             <p className="text-xs text-gray-600 text-center">

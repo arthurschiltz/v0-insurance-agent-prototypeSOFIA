@@ -18,7 +18,7 @@ export function Hero() {
             <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
               <Image
                 src="/sofia-portrait.jpg"
-                alt="Sofia Ramirez, insurance advisor with 12+ years of experience"
+                alt="Jose Ramirez, insurance advisor with 12+ years of experience"
                 fill
                 className="object-cover rounded-lg shadow-card"
                 priority
@@ -35,7 +35,7 @@ export function Hero() {
           >
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight text-pretty">
-                Get Expert Insurance Advice from Sofia Ramirez
+                Get Expert Insurance Advice from Jose Ramirez
               </h1>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                 12+ years of trusted service providing personalized insurance quotes and guidance for families and businesses in the community.

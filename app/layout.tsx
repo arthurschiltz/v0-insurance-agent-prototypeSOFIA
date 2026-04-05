@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Sofia Ramirez Insurance - Personalized Insurance Quotes',
-  description: 'Get expert insurance advice from Sofia Ramirez with 12+ years of trusted service. Free personalized quotes for auto, home, and life insurance.',
+  title: 'Jose Ramirez Insurance - Personalized Insurance Quotes',
+  description: 'Get expert insurance advice from Jose Ramirez with 12+ years of trusted service. Free personalized quotes for auto, home, and life insurance.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'Sofia Ramirez Insurance - Personalized Insurance Quotes',
-    description: 'Get expert insurance advice from Sofia Ramirez. Free personalized quotes and trusted service.',
+    title: 'Jose Ramirez Insurance - Personalized Insurance Quotes',
+    description: 'Get expert insurance advice from Jose Ramirez. Free personalized quotes and trusted service.',
     type: 'website',
   },
 }

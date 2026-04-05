@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
           {/* About */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Sofia Ramirez Insurance</h3>
+            <h3 className="text-lg font-semibold text-white">Jose Ramirez Insurance</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               12+ years of trusted insurance guidance. Personalized quotes and expert recommendations for individuals and families.
             </p>
